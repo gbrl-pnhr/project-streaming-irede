@@ -1,4 +1,4 @@
-import NavBar from "@/components/navBar.vue";
+import NavBar from "@/components/NavBar/nav-bar.vue";
 import type { App } from "vue";
 
 export function setComponent(app: App) {
