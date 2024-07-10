@@ -2,23 +2,21 @@ import '@/style.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-
 import PrimeVue from 'primevue/config'
-import Aura from "@primevue/themes/aura"
-
+import Button from 'primevue/button';
 import router from './router'
-
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { RiHeartFill, RiHeartAddLine } from "oh-vue-icons/icons";
+import { RiHeartFill, RiHeartAddLine, HiMenu } from "oh-vue-icons/icons";
+import { setComponent } from './modules/component.module';
 
-addIcons(RiHeartFill, RiHeartAddLine);
+addIcons(RiHeartFill, RiHeartAddLine, HiMenu);
 
-const app = createApp(App)
-app.component("v-icon", OhVueIcon);
+const app = createApp(App);
+setComponent(app);
 app.use(PrimeVue, {
-    theme: {
-        preset: Aura
-    }
+    unstyled: true
 })
-app.use(router)
-app.mount('#app')
+app.use(router);
+app.component("v-icon", OhVueIcon);
+app.component("Button", Button);
+app.mount('#app');

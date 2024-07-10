@@ -1,14 +1,9 @@
 <script lang="ts">
-import NavBar from "./components/navBar.vue";
-export default {
-  components: {
-    NavBar
-  }
-}
+export default {}
 </script>
 
 <template>
-  <NavBar/>
+  <nav-bar/>
 </template>
 
 <style></style>
