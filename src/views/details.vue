@@ -1,9 +1,5 @@
-<script lang="ts">
-export default {}
-</script>
-
 <template>
-  <div class="card">    
+  <!--div class="card2">    
     <div class="transparence">
       <div class="conteiner"> 
       <div>
@@ -17,12 +13,36 @@ export default {}
       <div class="textgroung"> 
         <p> "Este filme acontece na codade de Trana durante uma guerra civil entre dois grupos pro liberdade"</p>
       </div>
-    </div>
-      <div>
-        <iframe class="video" width="853" height="480" src="https://www.youtube.com/embed/lCemyQeSCV8" title="CURSO DE TYPESCRIPT NA PRÁTICA - APRENDA TYPESCRIPT EM 1 HORA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>">
-      </div>
+    </div-->
 
-    </div>
-  </div> 
+    <Card style="width: 25rem; overflow: hidden">
 
-</template>
+        <img alt="user header" src="/images/usercard.png" />
+   
+    </Card>
+
+
+ </template>
+
+<script lang="ts">
+import Card from 'primevue/card';
+
+
+export default{  
+  name: "view_details",
+  date(){
+    return {
+      title: 'title',
+      releaseyear: "2024",
+      note : "7.5",
+      duration: "110 min",
+      sinopse : "Este filme acontece na codade de Trana durante uma guerra civil entre dois grupos pro liberdade",
+    }
+  },
+  methods:{
+      DataVideo(){          
+      }
+  } 
+}
+</script>
+
