@@ -3,5 +3,7 @@ export default {}
 </script>
 
 <template>
-    
+    <body>
+        <structure-pages/>
+    </body>
 </template>
