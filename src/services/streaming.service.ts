@@ -8,13 +8,40 @@ export class StreamingService {
 
     streamings: Observable<any> = this.streamings$.asObservable();
 
-    getStreamings(endpoint: string) {
-        this._streamings.getStreamings(endpoint)
+    getAll() {
+        this._streamings.getAll()
             .pipe()
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log("Foi possível recuperear os dados");
+                    console.log(response.results);
+                },
+                error: () => {
+                    alert("Não foi possível recuperar os dados");
+                }
+            });
+    }
+
+    getMovies() {
+        this._streamings.getMovies()
+            .pipe()
+            .subscribe({
+                next: (response: any) => {
+                    this.streamings$.next(response);
+                    console.log(response.results);
+                },
+                error: () => {
+                    alert("Não foi possível recuperar os dados");
+                }
+            });
+    }
+
+    getSeries() {
+        this._streamings.getSeries()
+            .pipe()
+            .subscribe({
+                next: (response: any) => {
+                    this.streamings$.next(response);
                     console.log(response.results);
                 },
                 error: () => {
