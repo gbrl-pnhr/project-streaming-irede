@@ -8,6 +8,9 @@ import router from './router'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import { RiHeartFill, RiHeartAddLine, HiMenu } from "oh-vue-icons/icons";
 import { setComponent } from './modules/component.module';
+import Card from 'primevue/card';
+import ToggleSwitch from 'primevue/toggleswitch';
+import Aura from '@primevue/themes/aura';
 
 addIcons(RiHeartFill, RiHeartAddLine, HiMenu);
 
@@ -19,4 +22,15 @@ app.use(PrimeVue, {
 app.use(router);
 app.component("v-icon", OhVueIcon);
 app.component("Button", Button);
+app.component("Card", Card);
+app.component("ToggleSwitch",{
+    theme: {
+        preset: Aura,
+        options: {
+            prefix: 'p',
+            darkModeSelector: 'system',
+            cssLayer: false
+        }
+    }
+});
 app.mount('#app');

@@ -1,35 +1,42 @@
 <template>
-  <div class="background">
-    <div class="transparency">      
-      <div style="font-size: 48px; font-weight: bold;">
-        {{ titleMovie }}
-      </div>      
-      <div style="font-size: 12px;">
-        <a> {{ year }} &nbsp | </a>
-        <a style="color: rgb(20,120,0);">&nbsp {{ assessment }} &nbsp </a> 
-        <a>| &nbsp {{ duration }} </a>
-      </div>
-      <br/>
-      <br/>
-      <div style="font-size: 18px;">        
-        {{ sinopse }}
-      </div>
-      <br/>
-      <div>
-        <RouterLink
-            class="no-underline inline-block text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-white hover:text-red-700 mt-4 sm:mt-0"
-            to="/">
-            <span>
-                Favoritos
-                <v-icon name="ri-heart-fill" />
-            </span>
-        </RouterLink>
-    </div>      
-      <div>
-        <iframe style="scale: 50%; border-radius: 40px;" width="773" height="435" src="https://www.youtube.com/embed/LKFuXETZUsI" title="Moana Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+  <div class="background min-height-full; max-w-full">
+    <div class="transparency" >
+      <Card>
+          <template #title>
+            <div class="text-[48px] font-normal md:font-bold">
+              {{ titleMovie }}
+            </div> 
+          </template>
+
+        <template #subtitle>  
+          <div class="text-[16px]">
+            <a> {{ year }} &nbsp | </a>
+            <a style="color: rgb(20,120,0);">&nbsp {{ assessment }} &nbsp </a> 
+            <a>| &nbsp {{ duration }} </a>
+          </div>   
+        </template>
+
+        <template #content>            
+              <div class="text-[24px]">
+                {{ sinopse }} 
+              </div> 
+        </template>
+          
+        <template #footer> 
+          <ToggleSwitch  v-model="checked"> Favorito </ToggleSwitch> 
+        </template>
+      </Card>
+
+
+       
+         <iframe style="border-radius: 40px; scale: 50%;" width="773" height="435" :src="urlMovie" title="Moana Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+      
+        
+   
+  
+         </div>
     </div>
-  </div>
 </template>
 
 <script lang="ts">
@@ -42,7 +49,9 @@ export default{
       sinopse: 'Uma jovem parte em uma missão para salvar seu povo. Durante a jornada, Moana conhece o outrora poderoso semideus Maui, que a guia em sua busca para se tornar uma mestre em encontrar caminhos. Juntos, eles navegam pelo oceano em uma viagem incrível.',
       year: '2014',
       assessment: '7.5',
-      duration: '120 min',      
+      duration: '120 min',
+      urlMovie: "https://www.youtube.com/embed/LKFuXETZUsI",
+      checked: true,     
     }
   }
 }
