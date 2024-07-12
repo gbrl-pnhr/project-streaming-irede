@@ -8,8 +8,8 @@ export class StreamingService {
 
     streamings: Observable<any> = this.streamings$.asObservable();
 
-    getAll() {
-        this._streamings.getAll()
+    getAll(page?: number) {
+        this._streamings.getAll(page)
             .pipe()
             .subscribe({
                 next: (response: any) => {
@@ -17,13 +17,13 @@ export class StreamingService {
                     console.log(response.results);
                 },
                 error: () => {
-                    alert("Não foi possível recuperar os dados");
+                    alert("Não foi possível recuperar os dados das Series e Filmes");
                 }
             });
     }
 
-    getMovies() {
-        this._streamings.getMovies()
+    getMovies(page?: number) {
+        this._streamings.getMovies(page)
             .pipe()
             .subscribe({
                 next: (response: any) => {
@@ -31,13 +31,13 @@ export class StreamingService {
                     console.log(response.results);
                 },
                 error: () => {
-                    alert("Não foi possível recuperar os dados");
+                    alert("Não foi possível recuperar os dados dos Filmes");
                 }
             });
     }
 
-    getSeries() {
-        this._streamings.getSeries()
+    getSeries(page?: number) {
+        this._streamings.getSeries(page)
             .pipe()
             .subscribe({
                 next: (response: any) => {
@@ -45,7 +45,21 @@ export class StreamingService {
                     console.log(response.results);
                 },
                 error: () => {
-                    alert("Não foi possível recuperar os dados");
+                    alert("Não foi possível recuperar os dados das Series");
+                }
+            });
+    }
+
+    getTrailer(id: number, mediaType: string) {
+        this._streamings.getTrailer(id, mediaType)
+            .pipe()
+            .subscribe({
+                next: (response: any) => {
+                    this.streamings$.next(response);
+                    console.log(response.results);
+                },
+                error: () => {
+                    alert("Não foi possível recuperar o Trailer");
                 }
             });
     }
