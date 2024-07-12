@@ -1,6 +1,11 @@
 <script lang="ts">
+import { Streamings } from '@/models/streaming.model';
+
 export default {
-    name: "StructurePages"
+    name: "StructurePages",
+    props: {
+        url: Streamings,
+    }
 }
 </script>
 
@@ -13,66 +18,12 @@ export default {
                         <div class="w-full relative ">
                             <div class="transform transition duration-500 hover:scale-110 ">
                                 <RouterLink to="/details">
-                                    <card-poster class="mx-5"/>
+                                    <card-poster class="mx-5" :url="url"/>
                                 </RouterLink>
                             </div>
                         </div>
                     </li>
-                    <li class="inline-block m-6 mt-4 relative text-center">
-                        <div class="w-full relative ">
-                            <div class="transform transition duration-500 hover:scale-110 ">
-                                <RouterLink to="/details">
-                                    <card-poster class="mx-5"/>
-                                </RouterLink>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="inline-block m-6 mt-4 relative text-center">
-                        <div class="w-full relative ">
-                            <div class="transform transition duration-500 hover:scale-110 ">
-                                <RouterLink to="/details">
-                                    <card-poster class="mx-5"/>
-                                </RouterLink>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="inline-block m-6 mt-4 relative text-center">
-                        <div class="w-full relative ">
-                            <div class="transform transition duration-500 hover:scale-110 ">
-                                <RouterLink to="/details">
-                                    <card-poster class="mx-5"/>
-                                </RouterLink>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="inline-flex m-6 mt-4 relative text-center">
-                        <div class="w-full relative ">
-                            <div class="transform transition duration-500 hover:scale-110 ">
-                                <RouterLink to="/details">
-                                    <card-poster class="mx-5"/>
-                                </RouterLink>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="inline-block m-6 mt-4 relative text-center">
-                        <div class="w-full relative ">
-                            <div class="transform transition duration-500 hover:scale-110 ">
-                                <RouterLink to="/details">
-                                    <card-poster class="mx-5"/>
-                                </RouterLink>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="inline-block m-6 mt-4 relative text-center">
-                        <div class="w-full relative ">
-                            <div class="transform transition duration-500 hover:scale-110 ">
-                                <RouterLink to="/details">
-                                    <card-poster class="mx-5"/>
-                                </RouterLink>
-                            </div>
-                        </div>
-                    </li>
-                </ul>       
+                </ul>
             </div>
             <div class="flex justify-center items-center p-8">
                 <p class="text-white text-center">1 ... 500</p>
