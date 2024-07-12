@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "20": "^3.1.9",
     "@primevue/themes": "^4.0.0",
     "axios": "^1.7.2",
     "oh-vue-icons": "^1.0.0-rc3",

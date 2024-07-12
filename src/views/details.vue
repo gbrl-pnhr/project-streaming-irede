@@ -14,9 +14,17 @@
       <div style="font-size: 18px;">        
         {{ sinopse }}
       </div>
+      <br/>
       <div>
-        <button > Favorito </button>
-      </div>      
+        <RouterLink
+            class="no-underline inline-block text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-white hover:text-red-700 mt-4 sm:mt-0"
+            to="/">
+            <span>
+                Favoritos
+                <v-icon name="ri-heart-fill" />
+            </span>
+        </RouterLink>
+    </div>      
       <div>
         <iframe style="scale: 50%; border-radius: 40px;" width="773" height="435" src="https://www.youtube.com/embed/LKFuXETZUsI" title="Moana Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
