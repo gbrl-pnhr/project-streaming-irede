@@ -23,14 +23,5 @@ app.use(router);
 app.component("v-icon", OhVueIcon);
 app.component("Button", Button);
 app.component("Card", Card);
-app.component("ToggleSwitch",{
-    theme: {
-        preset: Aura,
-        options: {
-            prefix: 'p',
-            darkModeSelector: 'system',
-            cssLayer: false
-        }
-    }
-});
+app.component("ToggleSwitch", ToggleSwitch);
 app.mount('#app');
