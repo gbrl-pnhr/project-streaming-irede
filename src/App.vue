@@ -4,6 +4,7 @@ export default {}
 
 <template>
   <nav-bar/>
+  <RouterView/>
 </template>
 
 <style></style>
