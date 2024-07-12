@@ -7,23 +7,72 @@ export default {
 <template>
     <body class="m-0 p-0">
         <div class="min-h-screen justify-between flex-wrap bg-gray-800">
-            <!-- conteiner -->
-            <div class="flex justify-center items-center pt-8">
-                <!-- scrollImages -->
-                <div class="allImages inline-flex bg-gray-700 py-14 px-28">
-                    <div class="cardImages p-16 bg-blue-600 m-5 w-[304px] h-[456px] rounded-2xl">FILME 1</div>
-                    <div class="cardImages p-16 bg-blue-600 m-5 w-[304px] h-[456px] rounded-2xl">FILME 2</div>
-                    <div class="cardImages p-16 bg-blue-600 m-5 w-[304px] h-[456px] rounded-2xl">FILME 3</div>
-                </div>
-            </div>
-    
-            <div class="flex justify-center items-center">
-                <!-- scrollImages -->
-                <div class="allImages inline-flex bg-gray-700 py-14 px-28">
-                    <div class="cardImages p-16 bg-blue-600 m-5 w-[304px] h-[456px] rounded-2xl">FILME 1</div>
-                    <div class="cardImages p-16 bg-blue-600 m-5 w-[304px] h-[456px] rounded-2xl">FILME 2</div>
-                    <div class="cardImages p-16 bg-blue-600 m-5 w-[304px] h-[456px] rounded-2xl">FILME 3</div>
-                </div>
+            <div class="w-full inline-flex py-7 px-28">
+                <ul>
+                    <li class="inline-block m-6 mt-4 relative text-center">
+                        <div class="w-full relative ">
+                            <div class="transform transition duration-500 hover:scale-110 ">
+                                <RouterLink to="/details">
+                                    <card-poster class="mx-5"/>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inline-block m-6 mt-4 relative text-center">
+                        <div class="w-full relative ">
+                            <div class="transform transition duration-500 hover:scale-110 ">
+                                <RouterLink to="/details">
+                                    <card-poster class="mx-5"/>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inline-block m-6 mt-4 relative text-center">
+                        <div class="w-full relative ">
+                            <div class="transform transition duration-500 hover:scale-110 ">
+                                <RouterLink to="/details">
+                                    <card-poster class="mx-5"/>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inline-block m-6 mt-4 relative text-center">
+                        <div class="w-full relative ">
+                            <div class="transform transition duration-500 hover:scale-110 ">
+                                <RouterLink to="/details">
+                                    <card-poster class="mx-5"/>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inline-flex m-6 mt-4 relative text-center">
+                        <div class="w-full relative ">
+                            <div class="transform transition duration-500 hover:scale-110 ">
+                                <RouterLink to="/details">
+                                    <card-poster class="mx-5"/>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inline-block m-6 mt-4 relative text-center">
+                        <div class="w-full relative ">
+                            <div class="transform transition duration-500 hover:scale-110 ">
+                                <RouterLink to="/details">
+                                    <card-poster class="mx-5"/>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="inline-block m-6 mt-4 relative text-center">
+                        <div class="w-full relative ">
+                            <div class="transform transition duration-500 hover:scale-110 ">
+                                <RouterLink to="/details">
+                                    <card-poster class="mx-5"/>
+                                </RouterLink>
+                            </div>
+                        </div>
+                    </li>
+                </ul>       
             </div>
             <div class="flex justify-center items-center p-8">
                 <p class="text-white text-center">1 ... 500</p>
