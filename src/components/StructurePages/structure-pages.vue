@@ -4,30 +4,29 @@ import type { StreamingService } from '@/services/streaming.service';
 export default {
     name: "StructurePages",
     props: {
-        url: Array <StreamingService>,
+        url: Array < StreamingService > ,
     }
 }
 </script>
 
 <template>
-    <body class="m-0 p-0">
-        <div class="min-h-screen justify-between flex-wrap bg-gray-800">
-            <div class="w-full inline-flex py-7 px-28">
-                <ul>
-                    <li class="inline-block m-6 mt-4 relative text-center" v-for="posters in url" >
-                        <div class="w-full relative ">
-                            <div class="transform transition duration-500 hover:scale-110 ">
-                                <RouterLink to="/details">
-                                    <card-poster class="mx-5" :url="posters"/>
-                                </RouterLink>
-                            </div>
+    <div class="min-h-screen bg-gray-800">
+        <div class="flex items-center text-center sm:pt-8">
+            <ul class="flex-wrap">
+                <li class="inline-block relative lg:m-6 lg:mt-4 sm:justify-center my-5" v-for="posters in url">
+                    <div>
+                        <div class="transform transition duration-500 hover:scale-110 ">
+                            <RouterLink to="/details">
+                                <card-poster class="mx-5" :url="posters"/>
+                            </RouterLink>
                         </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex justify-center items-center p-8">
-                <p class="text-white text-center">1 ... 500</p>
-            </div>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </body>
+        <div class="flex justify-center items-center p-8">
+            <!-- referencia para a paginação -->
+            <p class="text-white text-center">1 ... 500</p>
+        </div>
+    </div>
 </template>
