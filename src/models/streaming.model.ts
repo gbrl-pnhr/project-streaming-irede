@@ -5,9 +5,6 @@ export class Streamings {
         public id?: number,
         public name?: string, // series
         public title?: string, // filmes
-        public original_language?: string,
-        public original_name?: string, // series
-        public original_title?: string, // filmes
         public overview?: string,
         public poster_path?: string,
         public media_type?: string,
@@ -15,9 +12,15 @@ export class Streamings {
         public popularity?: number,
         public release_date?: string, // filmes
         public first_air_date?: string, // series
-        public video?: boolean, // filmes
-        public vote_average?: number,
-        public vote_count?: number,
-        public origin_country?: string[], // series
+        public videos?: Videos[]
+    ) {}
+}
+
+class Videos {
+    constructor(
+        public name_video?: string,
+        public key?: string,
+        public size?: 360,
+        public type?: string,
     ) {}
 }
