@@ -4,17 +4,16 @@ import { StreamingService } from '@/services/streaming.service';
 export default {
     data() {
         return {
-            all: new Array < StreamingService > (),
-            count: 1,
+            all: new Array <StreamingService> (),
         }
     },
     mounted() {
         this.getAll();
     },
     methods: {
-        getAll(page?: number) {
+        getAll() {
             this.service.streamings.subscribe({ next: (response: any) => this.all = response.results });
-            this.service.getAll(page);
+            this.service.getAll();
         }
     },
     computed: {
@@ -26,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <body v-for="index in all">
-        <structure-pages :url="index"/>
+    <body>
+        <structure-pages :url="all"/>
     </body>
 </template>

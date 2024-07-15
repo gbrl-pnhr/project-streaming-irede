@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <Card style="width: 304px;height: 456px; overflow: hidden">
+    <Card class="w-[304px] h-[456px] overflow-hidden rounded-2xl">
         <template #header>
             <img alt="user header" :src="`https://image.tmdb.org/t/p/w342/${url?.poster_path}`"/>
         </template>

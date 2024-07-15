@@ -1,10 +1,10 @@
 <script lang="ts">
-import { Streamings } from '@/models/streaming.model';
+import type { StreamingService } from '@/services/streaming.service';
 
 export default {
     name: "StructurePages",
     props: {
-        url: Streamings,
+        url: Array <StreamingService>,
     }
 }
 </script>
@@ -14,11 +14,11 @@ export default {
         <div class="min-h-screen justify-between flex-wrap bg-gray-800">
             <div class="w-full inline-flex py-7 px-28">
                 <ul>
-                    <li class="inline-block m-6 mt-4 relative text-center">
+                    <li class="inline-block m-6 mt-4 relative text-center" v-for="posters in url" >
                         <div class="w-full relative ">
                             <div class="transform transition duration-500 hover:scale-110 ">
                                 <RouterLink to="/details">
-                                    <card-poster class="mx-5" :url="url"/>
+                                    <card-poster class="mx-5" :url="posters"/>
                                 </RouterLink>
                             </div>
                         </div>
