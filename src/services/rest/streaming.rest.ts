@@ -13,7 +13,7 @@ export class StreamingRest {
         return api.get(`/trending/tv/day?page=${ page || 1 }&language=pt-BR`);
     }
 
-    getTrailer(id: number, mediaType: string) {
-        return api.get(`/${ mediaType }/${ id }/videos`)
+    getDetails(id: number, mediaType: string) {
+        return api.get(`/${ mediaType }/${ id }?append_to_response=videos`)
     }
 }
