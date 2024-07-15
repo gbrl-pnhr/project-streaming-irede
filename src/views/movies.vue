@@ -1,15 +1,16 @@
 <script lang="ts">
 import { StreamingService } from '@/views/streaming.service';
 import { Streamings } from '@/models/streaming.model';
+
 export default {
     data() {
         return {
             films: new Array<Streamings>(),
-            page: 1,
+            page: 1
         }
     },
     mounted() {
-        this.getMovies();
+        this.getMovies()
     },
     computed: {
         movieService(): StreamingService {
@@ -22,10 +23,31 @@ export default {
                 .subscribe({
                     next: (response: any) => {
                         this.films = response.results;
-                        console.log(response.results)
                     }
                 });
-            this.movieService.getMovies();
+            this.movieService.getMovies(page);
+        },
+        nextPage(last?: boolean) {
+            if (last === true) {
+                this.page = 500
+                this.getMovies(this.page);
+            } else {
+                if (this.page < 500) {
+                    this.page++;
+                    this.getMovies(this.page);
+                }
+            }
+        },
+        backPage(first?: boolean) {
+            if (first === true) {
+                this.page = 1
+                this.getMovies(this.page);
+            } else {
+                if (this.page > 1) {
+                    this.page--;
+                    this.getMovies(this.page);
+                }
+            }
         }
     },
 }
