@@ -32,6 +32,6 @@ export default {
 
 <template>
     <body>
-        <structure-pages/>
+        <structure-pages :streamingPosters="films"/>
     </body>
 </template>
