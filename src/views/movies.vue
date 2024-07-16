@@ -6,10 +6,9 @@ export default {
     data() {
         return {
             films: new Array<Streamings>(),
-            page: 1
         }
     },
-    mounted() {
+    created() {
         this.getMovies()
     },
     computed: {
@@ -27,28 +26,6 @@ export default {
                 });
             this.movieService.getMovies(page);
         },
-        nextPage(last?: boolean) {
-            if (last === true) {
-                this.page = 500
-                this.getMovies(this.page);
-            } else {
-                if (this.page < 500) {
-                    this.page++;
-                    this.getMovies(this.page);
-                }
-            }
-        },
-        backPage(first?: boolean) {
-            if (first === true) {
-                this.page = 1
-                this.getMovies(this.page);
-            } else {
-                if (this.page > 1) {
-                    this.page--;
-                    this.getMovies(this.page);
-                }
-            }
-        }
     },
 }
 </script>
