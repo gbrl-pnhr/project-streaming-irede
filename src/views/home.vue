@@ -1,18 +1,18 @@
 <script lang="ts">
-import { StreamingService } from '@/services/streaming.service';
+import { StreamingService } from '@/views/streaming.service';
 
 export default {
     data() {
         return {
-            all: new Array <StreamingService> (),
+            streamings: new Array <StreamingService> (),
         }
     },
     mounted() {
-        this.getAll();
+        this.getStreamings();
     },
     methods: {
-        getAll() {
-            this.service.streamings.subscribe({ next: (response: any) => this.all = response.results });
+        getStreamings() {
+            this.service.streamings.subscribe({ next: (response: any) => this.streamings = response.results });
             this.service.getAll();
         }
     },
@@ -26,6 +26,6 @@ export default {
 
 <template>
     <body>
-        <structure-pages :url="all"/>
+        <structure-pages :streamingPosters="streamings"/>
     </body>
 </template>
