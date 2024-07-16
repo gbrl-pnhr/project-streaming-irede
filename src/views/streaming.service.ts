@@ -2,7 +2,7 @@ import { BehaviorSubject, Observable, take } from "rxjs";
 import { StreamingRest } from "../services/rest/streaming.rest";
 
 export class StreamingService {
-    constructor(private _streamings = new StreamingRest()) {}
+    constructor(private _streamings = new StreamingRest()) { }
 
     private streamings$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
@@ -14,7 +14,6 @@ export class StreamingService {
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response.results);
                 },
                 error: () => {
                     alert("Não foi possível recuperar os dados das Series e Filmes");
@@ -28,7 +27,6 @@ export class StreamingService {
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response.results);
                 },
                 error: () => {
                     alert("Não foi possível recuperar os dados dos Filmes");
@@ -42,7 +40,6 @@ export class StreamingService {
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response.results);
                 },
                 error: () => {
                     alert("Não foi possível recuperar os dados das Series");
@@ -50,13 +47,12 @@ export class StreamingService {
             });
     }
 
-    getTrailer(id: number, mediaType: string) {
-        this._streamings.getTrailer(id, mediaType)
+    getDetailStreaming(id: number, mediaType: string) {
+        this._streamings.getDetails(id, mediaType)
             .pipe()
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response.results);
                 },
                 error: () => {
                     alert("Não foi possível recuperar o Trailer");
