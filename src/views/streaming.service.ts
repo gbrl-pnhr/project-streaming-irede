@@ -14,7 +14,6 @@ export class StreamingService {
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response.results);
                 },
                 error: () => {
                     alert("Não foi possível recuperar os dados das Series e Filmes");
@@ -28,7 +27,6 @@ export class StreamingService {
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response.results);
                 },
                 error: () => {
                     alert("Não foi possível recuperar os dados dos Filmes");
@@ -42,7 +40,6 @@ export class StreamingService {
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response.results);
                 },
                 error: () => {
                     alert("Não foi possível recuperar os dados das Series");
@@ -56,7 +53,6 @@ export class StreamingService {
             .subscribe({
                 next: (response: any) => {
                     this.streamings$.next(response);
-                    console.log(response);
                 },
                 error: () => {
                     alert("Não foi possível recuperar o Trailer");
