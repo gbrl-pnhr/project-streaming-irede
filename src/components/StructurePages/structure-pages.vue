@@ -2,7 +2,7 @@
 import type { Streamings } from '@/models/streaming.model';
 
 export default {
-    name: "StructurePages",
+    name: "StructurePages",    
     props: {
         streamingPosters: {
             type: Array<Streamings>,
@@ -28,9 +28,9 @@ export default {
                 <li class="inline-block relative lg:m-6 lg:mt-4 sm:justify-center my-5"
                     v-for="posters in streamingPosters">
                     <div>
-                        <div class="transform transition duration-500 hover:scale-105 ">
-                            <RouterLink :to="`/details/${posters.media_type}/${posters.id}`">
-                                <card-poster class="mx-5" :streamingPosters="posters" />
+                        <div class="transform transition duration-500 hover:scale-110 ">
+                            <RouterLink :to="{ name: 'detailspage', params: { typemedia: posters.media_type, id: posters.id }}">
+                                <card-poster class="mx-5" :streamingPosters="posters"/>
                             </RouterLink>
                         </div>
                         <Button type="button" v-if="isButtonVisible" @click="sendFavoriteDelete(posters)"

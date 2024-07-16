@@ -1,14 +1,16 @@
 <script lang="ts">
-import { RouterView } from 'vue-router';
+import NavBar from './components/NavBar/nav-bar.vue';
 
-export default {}
+export default {
+  components:{
+    NavBar,
+  }
+}
 </script>
 
-<template>
-  
+<template> 
   <header>
-    <nav-bar/>
-  </header>
-
+    <NavBar/> 
+  </header>  
   <RouterView/>
 </template>

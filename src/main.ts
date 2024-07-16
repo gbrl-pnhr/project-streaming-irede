@@ -10,8 +10,6 @@ import { setComponentPrime } from './modules/component-primevue.module'
 
 const app = createApp(App);
 setComponent(app);
-setComponentIcons(app)
-setComponentPrime(app)
 
 app.use(PrimeVue, {
     unstyled: true
