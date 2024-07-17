@@ -5,9 +5,20 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: { path: '/1' },
       name: 'home',
-      component: () => import('@/views/home.vue')
+      children: [
+        {
+          path: '/:page',
+          name: 'page',
+          component: () => import('@/views/home.vue')
+        }
+      ],
+      meta: {
+        reload: true
+      }
     },
+
     {
       path: '/details',
       name: 'details',

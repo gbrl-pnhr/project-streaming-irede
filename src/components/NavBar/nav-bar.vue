@@ -11,6 +11,11 @@ export default {
     methods: {
         toggle() {
             this.menu = !this.menu
+        },
+        reloadPage() {
+            setTimeout(() => { 
+                window.location.reload();
+             }, 100);
         }
     }
 }
@@ -29,13 +34,13 @@ export default {
             </div>
             <div :class="menu ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div class="text-sm sm:flex-grow">
-                    <RouterLink to="/" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
+                    <RouterLink to="/1" @click = "reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
                         Home
                     </RouterLink>
-                    <RouterLink to="/movies" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
+                    <RouterLink to="/movies" @click = "reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
                         Filmes
                     </RouterLink>
-                    <RouterLink to="/series" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0  text-white hover:text-red-500 font-semibold mr-4">
+                    <RouterLink to="/series" @click = "reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0  text-white hover:text-red-500 font-semibold mr-4">
                         Series
                     </RouterLink>
                 </div>
