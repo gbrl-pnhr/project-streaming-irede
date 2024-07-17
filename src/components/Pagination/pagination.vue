@@ -10,6 +10,7 @@ export default {
         }
     },
     methods: {
+
         passPage() {
             if (this.page < 500) {
                 this.page++;
@@ -19,7 +20,13 @@ export default {
         backPage() {
             if (this.page > 1) {
                 this.page--;
+                this.$emit('back-page')
             }
+        },
+        reloadPage() {
+            setTimeout(() => { 
+                window.location.reload();
+             }, 500);
         }
     },
     computed: {
@@ -34,8 +41,9 @@ export default {
         <div class="text-center bg-gray-800 text-white p-5 items-center">
             <RouterLink :to="`/${ page }`">
                 <p>
-                    <Button class="m-3 items-center px-3 py-2 border rounded-lg hover:text-blue-900 hover:bg-white" @click="$emit('backPage')">Anterior</Button> {{ page }} de 500<Button class="m-3 items-center px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click="passPage()">Próximo</Button>
+                    <Button class="m-3 items-center px-3 py-2 border rounded-lg hover:text-blue-900 hover:bg-white" @click = "backPage()">Anterior</Button> {{ page }} de 500<Button class="m-3 items-center px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click = "passPage()">Próximo</Button>
                 </p>
             </RouterLink>
+            <p>{{ page }}</p>
         </div>
 </template>
