@@ -1,31 +1,40 @@
 <script lang="ts">
 import { StreamingService } from '@/views/streaming.service';
+import router from '@/router';
 
 export default {
     data() {
         return {
-            streamings: new Array <StreamingService> (),
+            streamings: new Array < StreamingService > (),
+            page: Number(router.currentRoute.value.params.page)
         }
+    },
+    updated() {
+        this.getStreamings(this.page);
     },
     mounted() {
-        this.getStreamings();
+        this.getStreamings(this.page);
     },
     methods: {
-        getStreamings() {
+        getStreamings(page?: number) {
             this.service.streamings.subscribe({ next: (response: any) => this.streamings = response.results });
-            this.service.getAll();
-        }
+            this.service.getAll(page);
+        },
+        updatePage(newValuePage: number) {
+            this.page = newValuePage;
+        },
     },
     computed: {
         service(): StreamingService {
             return new StreamingService();
         }
-    },
+    }
 }
 </script>
 
 <template>
     <body>
-        <structure-pages :streamingPosters="streamings"/>
+        <structure-pages :streamingPosters = "streamings" />
+        <pagination @new-value = "updatePage"/>
     </body>
 </template>

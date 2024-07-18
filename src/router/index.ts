@@ -5,9 +5,20 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: { path: '/1' },
       name: 'home',
-      component: () => import('@/views/home.vue')
+      children: [
+        {
+          path: '/:page',
+          name: 'page',
+          component: () => import('@/views/home.vue')
+        }
+      ],
+      meta: {
+        reload: true
+      }
     },
+
     {
       path: '/details',
       name: 'details',
@@ -16,12 +27,26 @@ const router = createRouter({
     {
       path: '/movies',
       name: 'movies',
-      component: () => import('@/views/movies.vue')
+      children: [
+        {
+          path: '/:page',
+          name: 'page-movies',
+          component: () => import('@/views/movies.vue')
+
+        }
+      ]
     },
     {
       path: '/series',
       name: 'series',
-      component: () => import('@/views/series.vue')
+      children: [
+        {
+          path: '/:page',
+          name: 'page-series',
+          component: () => import('@/views/series.vue')
+
+        }
+      ]
     },
     {
       path: '/favorite',

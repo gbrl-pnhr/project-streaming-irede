@@ -1,10 +1,10 @@
 <script lang="ts">
-import type { StreamingService } from '@/views/streaming.service';
+import type { Streamings } from '@/models/streaming.model';
 
 export default {
     name: "StructurePages",
     props: {
-        streamingPosters: Array < StreamingService > ,
+        streamingPosters: Array <Streamings> ,
     }
 }
 </script>
@@ -23,10 +23,6 @@ export default {
                     </div>
                 </li>
             </ul>
-        </div>
-        <div class="flex justify-center items-center p-8">
-            <!-- referencia para a paginação -->
-            <p class="text-white text-center">1 ... 500</p>
         </div>
     </div>
 </template>
