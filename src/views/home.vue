@@ -20,8 +20,8 @@ export default {
             this.service.streamings.subscribe({ next: (response: any) => this.streamings = response.results });
             this.service.getAll(page);
         },
-        updatePage(novoValor: number) {
-            this.page = novoValor;
+        updatePage(newValuePage: number) {
+            this.page = newValuePage;
         },
     },
     computed: {

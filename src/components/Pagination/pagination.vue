@@ -24,8 +24,8 @@ export default {
             }
         },
         sendPage() {
-            const novoValor = this.page;
-            this.$emit('new-value', novoValor);
+            const newValuePage = this.page;
+            this.$emit('new-value', newValuePage);
         }
     },
     computed: {
