@@ -17,7 +17,7 @@ export default {
                     <div>
                         <div class="transform transition duration-500 hover:scale-110 ">
                             <RouterLink to="/details">
-                                <card-poster class="mx-5" :streamingPosters="posters" />
+                                <card-poster class="mx-5" :streamingPosters="posters"/>
                             </RouterLink>
                         </div>
                     </div>

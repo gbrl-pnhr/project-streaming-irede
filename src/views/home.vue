@@ -27,8 +27,8 @@ export default {
     computed: {
         service(): StreamingService {
             return new StreamingService();
-        },
-    },
+        }
+    }
 }
 </script>
 
