@@ -27,12 +27,26 @@ const router = createRouter({
     {
       path: '/movies',
       name: 'movies',
-      component: () => import('@/views/movies.vue')
+      children: [
+        {
+          path: '/:page',
+          name: 'page-movies',
+          component: () => import('@/views/movies.vue')
+
+        }
+      ]
     },
     {
       path: '/series',
       name: 'series',
-      component: () => import('@/views/series.vue')
+      children: [
+        {
+          path: '/:page',
+          name: 'page-series',
+          component: () => import('@/views/series.vue')
+
+        }
+      ]
     },
     {
       path: '/favorite',

@@ -1,11 +1,10 @@
 <script lang="ts">
 import type { Streamings } from '@/models/streaming.model';
-import type { StreamingService } from '@/views/streaming.service';
 
 export default {
     name: "StructurePages",
     props: {
-        streamingPosters: Array < Streamings > ,
+        streamingPosters: Array <Streamings> ,
     }
 }
 </script>
@@ -18,16 +17,12 @@ export default {
                     <div>
                         <div class="transform transition duration-500 hover:scale-110 ">
                             <RouterLink to="/details">
-                                <card-poster class="mx-5" :streamingPosters="posters"/>
+                                <card-poster class="mx-5" :streamingPosters="posters" />
                             </RouterLink>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <!-- <div class="flex justify-center items-center p-8">
-            referencia para a paginação
-            <p class="text-white text-center">1 ... 500</p>
-        </div> -->
     </div>
 </template>

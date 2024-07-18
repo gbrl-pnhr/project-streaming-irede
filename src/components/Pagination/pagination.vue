@@ -23,10 +23,9 @@ export default {
                 this.$emit('back-page')
             }
         },
-        reloadPage() {
-            setTimeout(() => { 
-                window.location.reload();
-             }, 500);
+        sendPage() {
+            const novoValor = this.page;
+            this.$emit('new-value', novoValor);
         }
     },
     computed: {
@@ -38,12 +37,11 @@ export default {
 </script>
 
 <template>
-        <div class="text-center bg-gray-800 text-white p-5 items-center">
-            <RouterLink :to="`/${ page }`">
-                <p>
-                    <Button class="m-3 items-center px-3 py-2 border rounded-lg hover:text-blue-900 hover:bg-white" @click = "backPage()">Anterior</Button> {{ page }} de 500<Button class="m-3 items-center px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click = "passPage()">Próximo</Button>
-                </p>
-            </RouterLink>
-            <p>{{ page }}</p>
-        </div>
+    <div class="text-center bg-gray-800 text-white p-5 flex justify-center">
+        <RouterLink :to="`/${ page }`">
+            <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-900 hover:bg-white" @click="backPage(), sendPage()">Anterior</Button>
+            <p class="inline">{{ page }} de 500</p>
+            <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click="passPage(), sendPage()">Próximo</Button>
+        </RouterLink>
+    </div>
 </template>
