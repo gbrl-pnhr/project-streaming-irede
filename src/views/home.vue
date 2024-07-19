@@ -1,12 +1,14 @@
 <script lang="ts">
 import { StreamingService } from '@/views/streaming.service';
 import router from '@/router';
+import type { Streamings } from '@/models/streaming.model';
 
 export default {
     data() {
         return {
-            streamings: new Array < StreamingService > (),
-            page: Number(router.currentRoute.value.params.page)
+            streamings: new Array <Streamings> (),
+            page: Number(router.currentRoute.value.params.page),
+            tipePage: 'home'
         }
     },
     updated() {
@@ -34,7 +36,7 @@ export default {
 
 <template>
     <body>
-        <structure-pages :streamingPosters = "streamings" />
-        <pagination @new-value = "updatePage"/>
+        <structure-pages :streamingPosters="streamings"/>
+        <pagination :tipePageRecive = 'tipePage' @new-value="updatePage"/>
     </body>
 </template>
