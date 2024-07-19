@@ -34,13 +34,13 @@ export default {
             </div>
             <div :class="menu ? 'block' : 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div class="text-sm sm:flex-grow">
-                    <RouterLink to="/1" @click="reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
+                    <RouterLink to="/home/1" @click="reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
                         Home
                     </RouterLink>
-                    <RouterLink to="/movies" @click="reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
+                    <RouterLink to="/movies/1" @click="reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0 text-white hover:text-red-500 font-semibold mr-4">
                         Filmes
                     </RouterLink>
-                    <RouterLink to="/series" @click="reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0  text-white hover:text-red-500 font-semibold mr-4">
+                    <RouterLink to="/series/1" @click="reloadPage()" class="no-underline block text-base mt-4 sm:inline-block sm:mt-0  text-white hover:text-red-500 font-semibold mr-4">
                         Series
                     </RouterLink>
                 </div>
@@ -48,7 +48,7 @@ export default {
                     <RouterLink class="no-underline inline-block text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-white hover:text-red-700 mt-4 sm:mt-0" to="/favorite">
                         <span>
                             Favoritos
-                            <v-icon name = "ri-heart-fill" />
+                            <v-icon name="ri-heart-fill" />
                         </span>
                     </RouterLink>
                 </div>

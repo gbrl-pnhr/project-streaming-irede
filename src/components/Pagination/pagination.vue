@@ -1,12 +1,16 @@
 <script lang="ts">
-import { StreamingService } from '@/views/streaming.service';
 import router from '@/router';
 
 export default {
     data() {
         return {
-            streamings: new Array < StreamingService > (),
-            page: Number(router.currentRoute.value.params.page)
+            page: Number(router.currentRoute.value.params.page),
+        }
+    },
+    props: {
+        tipePageRecive: {
+            type: String,
+            required: true
         }
     },
     methods: {
@@ -28,17 +32,12 @@ export default {
             this.$emit('new-value', newValuePage);
         }
     },
-    computed: {
-        service(): StreamingService {
-            return new StreamingService();
-        },
-    },
 }
 </script>
 
 <template>
     <div class="text-center bg-gray-800 text-white p-5 flex justify-center">
-        <RouterLink :to="`/${ page }`">
+        <RouterLink :to="`/${ tipePageRecive }/${ page }`">
             <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-900 hover:bg-white" @click="backPage(), sendPage()">Anterior</Button>
             <p class="inline">{{ page }} de 500</p>
             <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click="passPage(), sendPage()">Próximo</Button>
