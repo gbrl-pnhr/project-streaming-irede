@@ -1,15 +1,21 @@
 <script lang="ts">
 import { StreamingService } from '@/views/streaming.service';
 import { Streamings } from '@/models/streaming.model';
+import router from '@/router';
 
 export default {
     data() {
         return {
             films: new Array<Streamings>(),
+            page: Number(router.currentRoute.value.params.page),
+            tipePage: 'movies'
         }
     },
-    created() {
-        this.getMovies()
+    updated() {
+        this.getMovies(this.page);
+    },
+    mounted() {
+        this.getMovies(this.page)
     },
     computed: {
         movieService(): StreamingService {
@@ -26,6 +32,9 @@ export default {
                 });
             this.movieService.getMovies(page);
         },
+        updatePage(newValuePage: number) {
+            this.page = newValuePage;
+        },
     },
 }
 </script>
@@ -33,5 +42,6 @@ export default {
 <template>
     <body>
         <structure-pages :streamingPosters="films"/>
+        <pagination :tipePageRecive = 'tipePage' @new-value="updatePage"/>
     </body>
 </template>
