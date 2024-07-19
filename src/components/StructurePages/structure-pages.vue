@@ -16,7 +16,7 @@ export default {
                 <li class="inline-block relative lg:m-6 lg:mt-4 sm:justify-center my-5" v-for="posters in streamingPosters">
                     <div>
                         <div class="transform transition duration-500 hover:scale-110 ">
-                            <RouterLink to="/details">
+                            <RouterLink :to="`/details/${posters.media_type}/${posters.id}`">
                                 <card-poster class="mx-5" :streamingPosters="posters"/>
                             </RouterLink>
                         </div>
