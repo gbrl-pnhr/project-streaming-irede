@@ -8,7 +8,7 @@ export default {
         return {
             films: new Array<Streamings>(),
             page: Number(router.currentRoute.value.params.page),
-            tipePage: 'movies'
+            typePage: 'movies'
         }
     },
     updated() {
@@ -42,6 +42,6 @@ export default {
 <template>
     <body>
         <structure-pages :streamingPosters="films"/>
-        <pagination :tipePageRecive = 'tipePage' @new-value="updatePage"/>
+        <pagination :tipePageRecive = 'typePage' @new-value="updatePage"/>
     </body>
 </template>
