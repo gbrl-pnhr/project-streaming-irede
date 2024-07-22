@@ -6,7 +6,7 @@ import type { Streamings } from '@/models/streaming.model';
 export default {
     data() {
         return {
-            streamings: new Array <Streamings> (),
+            streamings: new Array<Streamings>(),
             page: Number(router.currentRoute.value.params.page),
             typePage: 'home'
         }
@@ -36,7 +36,7 @@ export default {
 
 <template>
     <body>
-        <structure-pages :streamingPosters="streamings"/>
-        <pagination :tipePageRecive = 'typePage' @new-value="updatePage"/>
+        <structure-pages :streamingPosters="streamings" :botao="false" />
+        <pagination :tipePageRecive='typePage' @new-value="updatePage" />
     </body>
 </template>

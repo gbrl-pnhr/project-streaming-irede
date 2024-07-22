@@ -1,10 +1,11 @@
 import { reactive } from "vue";
 import { BehaviorSubject } from "rxjs";
+import type { Streamings } from "@/models/streaming.model";
 
 export class FavoritesService {
-    private favorites$ = new BehaviorSubject<Object[]>([]);
+    private favorites$ = new BehaviorSubject<Streamings[]>([]);
     public favorites = reactive({
-        list: [] as Object[],
+        list: [] as Streamings[],
     });
 
     constructor() {
@@ -22,14 +23,21 @@ export class FavoritesService {
         }
     }
 
-    public addFavorite(item: Object) {
-        if (!this.favorites.list.includes(item)) {
+    public addFavorite(item: Streamings) {
+        if (!this.favorites.list.some(
+            fav => fav.id === item.id && fav.media_type === item.media_type
+        )) {
             this.favorites$.next([...this.favorites.list, item]);
         }
     }
 
-    public removeFavorite(item: Object) {
-        this.favorites$.next(this.favorites.list.filter((favorite) => favorite !== item));
+    public removeFavorite(item: Streamings) {
+        this.favorites$.next(this.favorites.list
+            .filter(
+                favorite =>
+                    favorite.id !== item.id || favorite.media_type !== item.media_type
+            )
+        );
     }
 
     public clearFavorites() {

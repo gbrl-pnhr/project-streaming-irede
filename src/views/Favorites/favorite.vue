@@ -7,14 +7,10 @@ export default {
     data() {
         return {
             favorites: new Array<Streamings>(),
-            streamings: new Array<Streamings>()
         }
     },
-    updated() {
-        this.getFavoritesList()
-    },
-    created() {
-        this.getFavoritesList()
+    mounted() {
+        this.getFavorites()
     },
     computed: {
         serviceFavorites(): FavoritesService {
@@ -25,36 +21,23 @@ export default {
         }
     },
     methods: {
-        removeFavorite(item: Streamings) {
-            this.serviceFavorites.removeFavorite(item)
+        removeFavorite(value: Streamings) {
+            this.serviceFavorites.removeFavorite(value);
+            this.favorites = this.favorites.filter(fav => fav.id !== value.id);
         },
         clearAll() {
-            this.serviceFavorites.clearFavorites()
+            this.serviceFavorites.clearFavorites();;
+            this.favorites = [];
         },
-        getFavoritesList() {
-            this.service.streamings.subscribe({
-                next: (response: any) =>
-                    this.streamings = response
-            });
-            //this.service.getDetailStreaming();
+        getFavorites() {
+            this.favorites = this.serviceFavorites.favorites.list;
         },
     }
 }
 </script>
 
 <template>
-    <div>
-        <Button type="button" @click="clearAll"
-            class="rounded bg-black text-white outline-none hover:ring-2 hover:ring-neutral-500 hover:ring-offset-2 hover:ring-offset-gray-800 m-6 p-1">
-            Remover Todos
-        </Button>
-        <div v-for="item in favorites" class="m-6">
-            {{ item.name || item.title }}
-            <br>
-            <Button type="button" @click="removeFavorite(item)"
-                class="rounded-full w-8 h-auto align-middle bg-gray-800 text-red-700 outline-none hover:bg-black hover:ring-2 hover:ring-neutral-500 hover:ring-offset-2 hover:ring-offset-white m-6 p-1">
-                <v-icon name="fa-heart-broken" />
-            </Button>
-        </div>
-    </div>
+    <body>
+        <structure-pages :streamingPosters="favorites" :botao="true" @delete-favorite="removeFavorite" />
+    </body>
 </template>

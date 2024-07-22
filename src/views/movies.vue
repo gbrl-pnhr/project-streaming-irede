@@ -41,7 +41,7 @@ export default {
 
 <template>
     <body>
-        <structure-pages :streamingPosters="films"/>
-        <pagination :tipePageRecive = 'typePage' @new-value="updatePage"/>
+        <structure-pages :streamingPosters="films" :botao="false" />
+        <pagination :tipePageRecive='typePage' @new-value="updatePage" />
     </body>
 </template>
