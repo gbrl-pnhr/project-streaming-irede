@@ -7,7 +7,7 @@
           <div class="text-[32px] font-extrabold text-white md:text-[40px] lg:text-[48px]">
             <div> {{ details.title }} </div>
             <div> {{ details.name }} </div>
-          </div>          
+          </div>
           <div class="text-[16px] text-white md:text-[18px] lg:text-[24px]">
             <div v-if="$route.params.typemedia == 'tv'">
               <a> {{ details.first_air_date?.split("-")[0] }} | </a>
@@ -15,7 +15,7 @@
                 {{ details.number_of_episodes }} episódios
               </a>
             </div>
-            <div v-else> 
+            <div v-else>
               <a> {{ details.release_date?.split("-")[0] }} | </a>
               <a style="color: rgb(20, 120, 0)">
                 {{ details.runtime }} min
@@ -27,10 +27,8 @@
           <div class="text-[16px] text-white text-justify md:text-[18px] lg:text-[24px]">
             {{ details.overview }} <br />
           </div>
-          <div class="card flex w-fit justify-start text-white text-[16px] rounded-md border-solid border-2 p-2 m-3 ">
-            <button-favorite :start-favorite="favorite" :text-is-favorite="'Esta Favoritado'"
-              :text-not-favorite="'Ainda não favoritado'" @favorite="status" />
-          </div>
+          <button-favorite :start-favorite="favorite" :text-is-favorite="'Esta Favoritado'"
+            :text-not-favorite="'Ainda não favoritado'" @favorite="status" />
         </div>
         <div>
           <div class="flex justify-center m-4 md:mx-8 md:my-32 lg:mx-16 lg:my-44 lg:scale-125">

@@ -1,67 +1,43 @@
 <template>
-  <div>
-    <input  type="checkbox" id="heart" :checked="isfavorite" @click="status"/>
-    <label v-if="isfavorite" for="heart"> {{textIsFavorite}} </label>
-    <label v-else for="heart"> {{textNotFavorite}} </label>
+
+  <div class="grid w-full gap-6 md:grid-col md:w-fit">
+    <div>
+      <input type="checkbox" id="react-option" :checked="isfavorite" @click="status" class="hidden peer">
+      <label v-if="isfavorite" for="react-option"
+        class="inline-flex items-center justify-between w-full p-4 text-white bg-black border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-red-600 hover:text-red-600 hover:border-red-600 peer-checked:text-white hover:bg-gray-50 peer-checked:bg-red-600 peer-checked:hover:border-white">
+        <v-icon name="ri-heart-fill" class="mx-2" /> <div class="w-full text-lg font-semibold"> {{ textIsFavorite }} </div> 
+      </label>
+      <label v-else for="react-option"
+        class="inline-flex items-center justify-between w-full p-4 text-white bg-black border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-red-600 hover:text-red-600 hover:border-red-600 peer-checked:text-white hover:bg-gray-50 peer-checked:bg-red-600 peer-checked:hover:border-white">
+        <v-icon name="ri-heart-fill" class="mx-2" /> <div class="w-full text-lg font-semibold"> {{ textNotFavorite }} </div>       
+      </label>
+    </div>
   </div>
+
 </template>
 
 <script lang="ts">
-  export default{
-    props:{
-      startFavorite: Boolean,
-      textIsFavorite: String,
-      textNotFavorite: String,
-    },
-    data(){
-      return{
-        isfavorite : this.startFavorite
+export default {
+  props: {
+    startFavorite: Boolean,
+    textIsFavorite: String,
+    textNotFavorite: String,
+  },
+  data() {
+    return {
+      isfavorite: this.startFavorite
+    }
+  },
+  methods: {
+    status() {
+      this.isfavorite = !this.isfavorite
+      if (this.isfavorite) {
+        this.$emit('favorite', { message: 'isSelect' })
+      } else {
+        this.$emit('favorite', { message: 'notSelect' })
       }
-    },    
-    methods:{
-      status(){
-        this.isfavorite = !this.isfavorite
-        if(this.isfavorite){
-          this.$emit('favorite',{message: 'isSelect'})          
-        }else{
-          this.$emit('favorite',{message: 'notSelect'})
-        }
-      }
-    },         
-  }
-
-</script>  
-
-<style scoped>  
-/*      CHECKBOX         */
-input[type="checkbox"] {  
-    display: none;
+    }
+  },
 }
-input[type="checkbox"] + label {
-    position: relative;
-    display: inline-block;
-    font-size: 1.6rem;
-    padding-left: 2.5rem;
-} 
-input[type="checkbox"] + label:before {
-    content: "\2764 ";
-    position: absolute;
-    top: -0.7rem;
-    left: -0.55rem;   
-    display: block;
-    transition:  .5s ease;
-    font-size: 2,4rem;
-    padding: 0.63rem;
-    color: white;
-} 
 
-input[type="checkbox"]:checked + label:after {
-    content: '\2764';
-    position: absolute;
-    top: -0.3rem;
-    left: -0.1rem;
-    font-size: 1.9rem;
-    transition:  .5s ease;
-    color: red;
-}
-</style>
+</script>
