@@ -23,19 +23,19 @@ export class FavoritesService {
         }
     }
 
-    public addFavorite(item: Streamings) {
+    public addFavorite(streaming: Streamings) {
         if (!this.favorites.list.some(
-            fav => fav.id === item.id && fav.media_type === item.media_type
+            fav => fav.id === streaming.id && fav.media_type === streaming.media_type
         )) {
-            this.favorites$.next([...this.favorites.list, item]);
+            this.favorites$.next([...this.favorites.list, streaming]);
         }
     }
 
-    public removeFavorite(item: Streamings) {
+    public removeFavorite(streaming: Streamings) {
         this.favorites$.next(this.favorites.list
             .filter(
                 favorite =>
-                    favorite.id !== item.id || favorite.media_type !== item.media_type
+                    favorite.id !== streaming.id || favorite.media_type !== streaming.media_type
             )
         );
     }

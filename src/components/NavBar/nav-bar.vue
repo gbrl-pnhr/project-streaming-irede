@@ -45,7 +45,7 @@ export default {
                     </RouterLink>
                 </div>
                 <div>
-                    <RouterLink class="no-underline inline-block text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-white hover:text-red-700 mt-4 sm:mt-0" to="/favorite">
+                    <RouterLink class="no-underline inline-block text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:bg-white hover:text-red-700 focus:bg-white focus:text-red-700 mt-4 sm:mt-0" to="/favorite">
                         <span>
                             Favoritos
                             <v-icon name="ri-heart-fill" />
