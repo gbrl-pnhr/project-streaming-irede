@@ -1,16 +1,21 @@
 <script lang="ts">
 import { StreamingService } from './streaming.service';
 import { Streamings } from '../models/streaming.model';
+import router from '@/router';
 
 export default {
     data() {
         return {
             series: new Array<Streamings>(),
-            page: 0
+            page: Number(router.currentRoute.value.params.page),
+            typePage: 'series'
         }
     },
     mounted() {    
         this.getSeries()
+    },
+    updated() {
+        this.getSeries(this.page);
     },
     computed: {
         serieService(): StreamingService {
@@ -27,6 +32,9 @@ export default {
                 });
             this.serieService.getSeries(page);
         },
+        updatePage(newValuePage: number) {
+            this.page = newValuePage;
+        },
     },
 }
 </script>
@@ -34,6 +42,7 @@ export default {
 <template>
     <body>                                  
         <structure-pages :streamingPosters="series" :pageCurrent="page"/>
+        <pagination :tipePageRecive = 'typePage' @new-value="updatePage"/>
     </body>
 </template>
 

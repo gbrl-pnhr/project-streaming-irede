@@ -7,11 +7,7 @@
           <div class="text-[32px] font-extrabold text-white md:text-[40px] lg:text-[48px]">
             <div> {{ details.title }} </div>
             <div> {{ details.name }} </div>
-          </div>
-          <div class="card flex justify-start text-white text-[16px]">
-            <ButtonFavorite :start-favorite="favorite" :text-is-favorite="'Esta Favoritado'"
-              :text-not-favorite="'Ainda não favoritado'" @favorite="status" />
-          </div>
+          </div>          
           <div class="text-[16px] text-white md:text-[18px] lg:text-[24px]">
             <div v-if="$route.params.typemedia == 'tv'">
               <a> {{ details.first_air_date?.split("-")[0] }} | </a>
@@ -30,6 +26,10 @@
           </div>
           <div class="text-[16px] text-white text-justify md:text-[18px] lg:text-[24px]">
             {{ details.overview }} <br />
+          </div>
+          <div class="card flex w-fit justify-start text-white text-[16px] rounded-md border-solid border-2 p-2 m-3 ">
+            <button-favorite :start-favorite="favorite" :text-is-favorite="'Esta Favoritado'"
+              :text-not-favorite="'Ainda não favoritado'" @favorite="status" />
           </div>
         </div>
         <div>
@@ -54,16 +54,12 @@
 <script lang="ts">
 import { StreamingService } from './streaming.service';
 import { Streamings } from '../models/streaming.model';
-import ButtonFavorite from '../components/FavoriteButton/button-favorite.vue'
 export default {
   data() {
     return {
       details: {} as Streamings,
       favorite: false,
     }
-  },
-  components: {
-    ButtonFavorite
   },
   mounted() {
     this.getSeries()

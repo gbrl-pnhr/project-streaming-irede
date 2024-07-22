@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="checkbox" id="heart" :checked="isfavorite" @click="status"/>
+    <input  type="checkbox" id="heart" :checked="isfavorite" @click="status"/>
     <label v-if="isfavorite" for="heart"> {{textIsFavorite}} </label>
     <label v-else for="heart"> {{textNotFavorite}} </label>
   </div>
