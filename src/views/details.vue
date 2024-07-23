@@ -28,7 +28,7 @@
             {{ details.overview }} <br />
           </div>
           <button-favorite :start-favorite="favorite" :text-is-favorite="'Esta Favoritado'"
-            :text-not-favorite="'Ainda não favoritado'" @favorite="status" />
+            :text-not-favorite="'Ainda não favoritado'" @onClickFavoriteButton="onClickFavoriteButton" />
         </div>
         <div>
           <div class="flex justify-center m-4 md:mx-8 md:my-32 lg:mx-16 lg:my-44 lg:scale-125">
@@ -52,6 +52,7 @@
 <script lang="ts">
 import { StreamingService } from './streaming.service';
 import { Streamings } from '../models/streaming.model';
+import { FavoritesService } from './Favorites/favorite.service';
 export default {
   data() {
     return {
@@ -61,10 +62,14 @@ export default {
   },
   mounted() {
     this.getSeries()
+    this.readFavorite()
   },
   computed: {
     serieService(): StreamingService {
       return new StreamingService();
+    },
+    localService(): FavoritesService {
+      return new FavoritesService();
     },
     urlImage(): string {
       return 'https://image.tmdb.org/t/p/original' + (this.details.backdrop_path ?? this.details.backdrop_path)
@@ -75,7 +80,7 @@ export default {
       };
     },
     typemedia(): string {
-      return String(this.$route.params.typemedia)
+      return String(this.$route.params.media)
     },
     streamId(): number {
       return Number(this.$route.params.id)
@@ -91,8 +96,31 @@ export default {
         });
       this.serieService.getDetailStreaming(this.streamId, this.typemedia);
     },
-    status(data: any) {
-      console.log(data.message); /* data.message->'isSelect', 'notSelect'*/
+    onClickFavoriteButton() {
+      this.readFavorite();
+      this.details.media_type = String(this.$route.params.media)
+
+      if (this.favorite) {
+        this.localService.removeFavorite(this.details);
+      } else {
+        this.localService.addFavorite(this.details);
+      }
+      // if (String(data.message) == 'isSelect') {
+      //   this.localService.addFavorite(this.details);
+      // }
+      // if (String(data.message) == 'notSelect') {
+      //   this.localService.removeFavorite(this.details);
+      // }
+    },
+    readFavorite() {
+      const listFavorites = this.localService.favorites.list
+
+      for (let item of listFavorites) {
+        if (item.id === this.details.id) {
+          console.log("esta favoritado")
+          this.favorite = true
+        }
+      }
     }
   }
 }
