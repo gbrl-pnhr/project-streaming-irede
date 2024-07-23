@@ -19,7 +19,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/details',
+      path: '/details/:media/:id',
       name: 'details',
       component: () => import('@/views/details.vue')
     },
@@ -50,7 +50,7 @@ const router = createRouter({
     {
       path: '/favorite',
       name: 'favorite',
-      component: () => import('@/views/favorite.vue')
+      component: () => import('@/views/Favorites/favorite.vue')
     },
   ]
 })
