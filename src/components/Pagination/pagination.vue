@@ -30,6 +30,12 @@ export default {
         sendPage() {
             const newValuePage = this.page;
             this.$emit('new-value', newValuePage);
+        },
+        windowScroll(){
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
     },
 }
@@ -38,9 +44,9 @@ export default {
 <template>
     <div class="text-center bg-gray-800 text-white p-5 flex justify-center">
         <RouterLink :to="`/${ tipePageRecive }/${ page }`">
-            <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-900 hover:bg-white" @click="backPage(), sendPage()">Anterior</Button>
+            <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click="backPage(), sendPage(), windowScroll()">Anterior</Button>
             <p class="inline">{{ page }} de 500</p>
-            <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click="passPage(), sendPage()">Próximo</Button>
+            <Button class="m-3 px-3 py-2 border rounded-lg hover:text-blue-500 hover:bg-white" @click="passPage(), sendPage(), windowScroll()">Próximo</Button>
         </RouterLink>
     </div>
 </template>
