@@ -36,7 +36,7 @@ export default {
 
 <template>
     <body>
-        <structure-pages :streamingPosters="streamings" :botao="false" />
+        <structure-pages :streamingPosters="streamings" :isButtonVisible="false" />
         <pagination :tipePageRecive='typePage' @new-value="updatePage" />
     </body>
 </template>

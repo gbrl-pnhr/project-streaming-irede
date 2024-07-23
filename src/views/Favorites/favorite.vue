@@ -41,6 +41,6 @@ export default {
         <Button class="m-3 px-3 py-2 w-64 border text-white rounded-lg hover:bg-gray-700 transition duration-200 hover:scale-105" @click="clearAll">
             Limpar
         </Button>
-        <structure-pages :streamingPosters="favorites" :botao="true" @delete-favorite="removeFavorite" />
+        <structure-pages :streamingPosters="favorites" :isButtonVisible="true" @delete-favorite="removeFavorite" />
     </body>
 </template>

@@ -8,7 +8,7 @@ export default {
             type: Array<Streamings>,
             required: true
         },
-        botao: {
+        isButtonVisible: {
             type: Boolean,
             required: true
         },
@@ -33,7 +33,7 @@ export default {
                                 <card-poster class="mx-5" :streamingPosters="posters" />
                             </RouterLink>
                         </div>
-                        <Button type="button" v-if="botao" @click="sendFavoriteDelete(posters)"
+                        <Button type="button" v-if="isButtonVisible" @click="sendFavoriteDelete(posters)"
                             class="rounded-full w-6 h-auto bg-white text-black hover:text-red-700 outline-none hover:ring-2 hover:ring-neutral-500 ring-offset-2 ring-offset-gray-800 m-6 transition duration-300 hover:scale-110">
                             <v-icon name="fa-heart-broken" />
                         </Button>
