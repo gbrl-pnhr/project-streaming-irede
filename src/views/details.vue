@@ -25,7 +25,7 @@
             <br />
           </div>
           <div class="text-[16px] text-white text-justify md:text-[18px] lg:text-[24px]">
-            {{ details.overview }} <br />
+            {{ details.overview }} <br/><br/>
           </div>
           <button-favorite :start-favorite="favorite" :text-is-favorite="'Esta Favoritado'"
             :text-not-favorite="'Ainda não favoritado'" @onClickFavoriteButton="onClickFavoriteButton" />
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div v-else class="text-[48px] text-center text-blue-950 p-[150px] flex justify-center min-h-screen">
-        Desculpe! <br />
+        Desculpe! <br/>
         Pagina Não Encontrada
       </div>
     </div>
@@ -97,32 +97,22 @@ export default {
       this.serieService.getDetailStreaming(this.streamId, this.typemedia);
     },
     onClickFavoriteButton() {
-      this.readFavorite();
       this.details.media_type = String(this.$route.params.media)
-
       if (this.favorite) {
         this.localService.removeFavorite(this.details);
       } else {
         this.localService.addFavorite(this.details);
-      }
-      // if (String(data.message) == 'isSelect') {
-      //   this.localService.addFavorite(this.details);
-      // }
-      // if (String(data.message) == 'notSelect') {
-      //   this.localService.removeFavorite(this.details);
-      // }
+      }  
     },
     readFavorite() {
-      const listFavorites = this.localService.favorites.list
-
-      for (let item of listFavorites) {
-        if (item.id === this.details.id) {
-          console.log("esta favoritado")
+      const listFavorites = this.localService.favorites.list   
+      listFavorites.forEach(item => {
+        if (item.id === Number(this.$route.params.id) && item.media_type === this.$route.params.media) {
           this.favorite = true
         }
-      }
+      })
     }
-  }
+  },  
 }
 
 </script>
