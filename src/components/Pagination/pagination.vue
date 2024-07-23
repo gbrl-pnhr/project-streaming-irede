@@ -31,7 +31,7 @@ export default {
             const newValuePage = this.page;
             this.$emit('new-value', newValuePage);
         },
-        windowScroll(){
+        windowScroll() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
