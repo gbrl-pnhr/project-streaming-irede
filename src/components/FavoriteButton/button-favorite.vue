@@ -19,13 +19,13 @@
 <script lang="ts">
 export default {
   props: {
-    startFavorite: Boolean,
+    toggleFavorite: Boolean,
     textIsFavorite: String,
     textNotFavorite: String,
   },
   data() {
     return {
-    isfavorite: this.startFavorite
+    isfavorite: this.toggleFavorite
     }
   },
   methods: {

@@ -27,7 +27,7 @@
           <div class="text-[16px] text-white text-justify md:text-[18px] lg:text-[24px]">
             {{ details.overview }} <br /><br />
           </div>
-          <button-favorite :start-favorite="isFavorite" :text-is-favorite="'Esta Favoritado'"
+          <button-favorite :toggle-favorite="isFavorite" :text-is-favorite="'Esta Favoritado'"
             :text-not-favorite="'Ainda não favoritado'" @onClickFavoriteButton="onClickFavoriteButton" />
         </div>
         <div>
