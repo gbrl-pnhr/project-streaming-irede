@@ -7,12 +7,15 @@ export default {
     data() {
         return {
             films: new Array<Streamings>(),
-            page: Number(router.currentRoute.value.params.page),
+            page: Number(this.$route.params.page),
             typePage: 'movies'
         }
     },
-    updated() {
-        this.getMovies(this.page);
+    watch: {
+        '$route.params.page'(newValuePage) {
+            this.page = Number(newValuePage);
+            this.getMovies(this.page);
+        }
     },
     mounted() {
         this.getMovies(this.page)
@@ -42,6 +45,6 @@ export default {
 <template>
     <body>
         <structure-pages :streamingPosters="films" :isButtonVisible="false" />
-        <pagination :tipePageRecive='typePage' @new-value="updatePage" />
+        <pagination :tipePageRecive='typePage' :pageFather="page" @new-value="updatePage" />
     </body>
 </template>
