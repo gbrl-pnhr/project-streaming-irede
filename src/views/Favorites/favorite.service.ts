@@ -25,7 +25,7 @@ export class FavoritesService {
 
     public addFavorite(streaming: Streamings) {
         if (!this.favorites.list.some(
-            fav => fav.id === streaming.id && fav.media_type === streaming.media_type
+            favorite => favorite.id === streaming.id && favorite.media_type === streaming.media_type
         )) {
             this.favorites$.next([...this.favorites.list, streaming]);
         }
@@ -44,4 +44,14 @@ export class FavoritesService {
         this.favorites$.next([]);
         localStorage.removeItem("favorites");
     }
+
+    public getFavorite(id:number, media:string): boolean{
+        let hasFavorite:boolean = false
+        this.favorites.list.forEach(item => {
+          if (item.id === id && item.media_type === media) {
+            hasFavorite = true
+          }          
+        })        
+        return hasFavorite
+      }
 }

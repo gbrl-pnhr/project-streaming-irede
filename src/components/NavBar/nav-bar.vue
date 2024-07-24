@@ -25,7 +25,7 @@ export default {
     <div class="font-sans antialiased" id="nav-bar">
         <nav class="flex items-center justify-between flex-wrap bg-blue-900 p-6">
             <div class="flex items-center flex-no-shrink text-white mr-6">
-                <span class="font-semibold italic text-2xl tracking-tight">Canal com K</span>
+                <span class="font-semibold italic text-2xl tracking-tight">Kanal com K</span>
             </div>
             <div class="block sm:hidden">
                 <Button @click="toggle" class="flex items-center px-3 py-2 border rounded hover:text-white hover:border-white">

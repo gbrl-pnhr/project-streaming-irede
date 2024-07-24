@@ -25,9 +25,9 @@
             <br />
           </div>
           <div class="text-[16px] text-white text-justify md:text-[18px] lg:text-[24px]">
-            {{ details.overview }} <br/><br/>
+            {{ details.overview }} <br /><br />
           </div>
-          <button-favorite :start-favorite="favorite" :text-is-favorite="'Esta Favoritado'"
+          <button-favorite :start-favorite="isFavorite" :text-is-favorite="'Esta Favoritado'"
             :text-not-favorite="'Ainda não favoritado'" @onClickFavoriteButton="onClickFavoriteButton" />
         </div>
         <div>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div v-else class="text-[48px] text-center text-blue-950 p-[150px] flex justify-center min-h-screen">
-        Desculpe! <br/>
+        Desculpe! <br />
         Pagina Não Encontrada
       </div>
     </div>
@@ -57,12 +57,10 @@ export default {
   data() {
     return {
       details: {} as Streamings,
-      favorite: false,
     }
   },
   mounted() {
-    this.getSeries()
-    this.readFavorite()
+    this.getSeries() 
   },
   computed: {
     serieService(): StreamingService {
@@ -85,6 +83,9 @@ export default {
     streamId(): number {
       return Number(this.$route.params.id)
     },
+    isFavorite(): boolean{
+      return this.localService.getFavorite(Number(this.$route.params.id),String(this.$route.params.media))
+    }
   },
   methods: {
     getSeries(page?: number) {
@@ -98,21 +99,13 @@ export default {
     },
     onClickFavoriteButton() {
       this.details.media_type = String(this.$route.params.media)
-      if (this.favorite) {
+      if (this.isFavorite) {
         this.localService.removeFavorite(this.details);
       } else {
         this.localService.addFavorite(this.details);
-      }  
-    },
-    readFavorite() {
-      const listFavorites = this.localService.favorites.list   
-      listFavorites.forEach(item => {
-        if (item.id === Number(this.$route.params.id) && item.media_type === this.$route.params.media) {
-          this.favorite = true
-        }
-      })
-    }
-  },  
+      }
+    },    
+  },
 }
 
 </script>

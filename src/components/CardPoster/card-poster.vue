@@ -2,7 +2,7 @@
 import { Streamings } from '../..//models/streaming.model';
 
 export default {
-    name: "Card-Poster",    
+    name: "CardPoster",    
     props: {
         streamingPosters: Streamings,
     }

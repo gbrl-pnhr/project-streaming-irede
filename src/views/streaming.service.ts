@@ -55,7 +55,7 @@ export class StreamingService {
                     this.streamings$.next(response);
                 },
                 error: () => {
-                    alert("Não foi possível recuperar o Trailer");
+                    alert("Não foi possível recuperar os detalhes");
                 }
             });
     }
