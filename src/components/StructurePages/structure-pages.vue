@@ -2,7 +2,7 @@
 import type { Streamings } from '@/models/streaming.model';
 
 export default {
-    name: "StructurePages",
+    name: "StructurePages",    
     props: {
         streamingPosters: {
             type: Array<Streamings>,

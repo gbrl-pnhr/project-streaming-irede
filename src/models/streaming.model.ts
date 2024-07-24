@@ -12,7 +12,7 @@ export class Streamings {
         public popularity?: number,
         public release_date?: string,
         public first_air_date?: string,
-        public videos?: Videos[],
+        public videos?: Videos,
         public runtime?: number,
         public number_of_episodes?: number,
         public number_of_seasons?: number,
@@ -21,7 +21,7 @@ export class Streamings {
 
 class Videos {
     constructor(
-        public results?: [
+        public results: [
             {
                 name_video?: string,
                 key?: string,

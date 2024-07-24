@@ -23,7 +23,7 @@ export default {
     methods: {
         removeFavorite(value: Streamings) {
             this.serviceFavorites.removeFavorite(value);
-            this.favorites = this.favorites.filter(fav => fav.id !== value.id);
+            this.favorites = this.favorites.filter(favorite => favorite.id !== value.id);
         },
         clearAll() {
             this.serviceFavorites.clearFavorites();;
